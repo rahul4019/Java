@@ -8,5 +8,25 @@ public class Test {
 
         String name = "Rahul Kumar";
         System.out.println(name);
+
+        // for loop
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+        }
+
+        // while loop
+        // int i = 0;
+        // while (i < 5) {
+        //     System.out.println(i);
+        //     i++;
+        // }
+
+        // star pattern
+        for(int i = 0; i<5; i++){
+            for (int j=0; j<i; j++){
+                System.out.print("*");
+            }
+            System.out.println('\n');
+        }
     }
 }
