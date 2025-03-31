@@ -16,5 +16,16 @@ public class Hash {
 
         // List, Map, Set, ImmutableList
 
+        // * if the key not present in the map, we will get null pointer exception error
+        System.out.println(marks.get("aman") > 100);
+
+        // * to avoid this error we have optional
+        Optional<Integer> marksOfAman = Optional.ofNullable(marks.get("aman"));
+        System.out.println(marksOfAman);
+        if (marksOfAman.isPresent()) {
+
+        } else {
+            System.out.println("Student not present");
+        }
     }
 }
