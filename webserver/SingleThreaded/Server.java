@@ -7,14 +7,14 @@ import java.net.Socket;
 
 public class Server {
 
-    public void run() {
+    public void run() throws IOException {
         int port = 8010;
         ServerSocket socket = new ServerSocket(port); // opening a socket at defined port
         socket.setSoTimeout(10000); // closes the socket if doesn't get the connection in defined time
 
         while (true) {
             try {
-                System.out.println("Server is listing on Port" + port);
+                System.out.println("Server is listing on Port " + port);
                 Socket acceptedConnection = socket.accept(); // accepting the connection
                 System.out.println("Connection accepted from client " + acceptedConnection.getRemoteSocketAddress());
 
@@ -33,6 +33,10 @@ public class Server {
 
                 toClient.println("Hello from the server");
 
+                toClient.close();
+                fromClient.close();
+
+                acceptedConnection.close();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
